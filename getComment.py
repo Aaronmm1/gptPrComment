@@ -3,7 +3,7 @@ def analyze_code():
     response_content = "Analysis complete: No issues found in the code."
 
     # Write the response to a file
-    with open('code_diff.txt', 'w') as file:
+    with open('response.txt', 'w') as file:
         file.write(response_content)
 
 def read_file_contents(file_path):
@@ -14,7 +14,7 @@ def read_file_contents(file_path):
         return contents
 
 
-file_path = 'code_diff.txt'
+file_path = 'response.txt'
 content = read_file_contents(file_path)
 print(content)
 analyze_code()
