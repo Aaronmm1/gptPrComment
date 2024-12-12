@@ -1,32 +1,20 @@
-import requests
-import os
-cortex_token = os.getenv('GPT_TOKEN')  # DO NOT SHARE THIS OR COMMIT IT TO GIT!
-use_case = 'Tim-Testing'  # Limited to 255 characters
-api_version = '2024-02-01'
-model_name = 'gpt-35-turbo-latest'
+def analyze_code():
+    # Example: Generate a response
+    response_content = "Analysis complete: No issues found in the code."
 
-headers = {
-    'accept': '*/*',
-    'Authorization': f'Bearer {cortex_token}',
-}
+    # Write the response to a file
+    with open('code_diff.txt', 'w') as file:
+        file.write(response_content)
 
-params = {
-    'api-version': api_version,
-}
+def read_file_contents(file_path):
+    # Open the file for reading
+    with open(file_path, 'r') as file:
+        # Read the entire contents of the file
+        contents = file.read()
+        return contents
 
-json_data = {
-    'messages': [
-        {
-            'content': 'Hello, please tell me a joke about insurance.',
-            'role': 'user',
-        },
-    ],
-    'use_case': use_case
-}
-def main():
 
-    with open('code_diff.txt', 'r') as file:
-        code_diff = file.read()
-
-    response = requests.post()
-    print(response.json()['choices'][0]['message']['content'])
+file_path = 'code_diff.txt'
+content = read_file_contents(file_path)
+print(content)
+analyze_code()
